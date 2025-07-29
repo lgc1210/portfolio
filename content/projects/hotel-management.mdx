@@ -1,0 +1,172 @@
+---
+  title: Hotel Management
+  summary: A hotel management built with ReactJS and ASP.NET.
+  image: /images/projects/hotel-management.png
+  images: ['/images/projects/hotel-management-1.png', '/images/projects/hotel-management-2.png', '/images/projects/hotel-management-3.png', '/images/projects/hotel-management-4.png', '/images/projects/hotel-management-5.png']
+  author: 'Gia Cuong'
+  publishedAt: '2024-09-20'
+---
+
+A comprehensive hotel management platform featuring booking, customer, and
+payment systems, integrated with an admin dashboard for efficient management.
+
+## Features
+
+- **JWT Authentication**: Secure user login and session management.
+- **CURD Operations**: Create, read, update, and delete functionality for
+  bookings, customers, and payments.
+- **VNPay Intergration**: Seamless online payment processing.
+- **Role-Based Access**: Admin and user roles for controlled access to features.
+- **Reporting & Analytics**: Revenue reports and occupancy statistics.
+- **Responsive Design**: Mobile-friendly interface that works on all devices.
+
+## Technologies
+
+- **Frontend**: ReactJS, Tailwind CSS, Ant Design.
+- **Backend**: ASP.NET.
+- **Database**: MySQL.
+- **Authentication**: JWT(JSON Web Tokens).
+- **ORM**: Entity Framework Core.
+
+## Getting Started
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/lgc1210/hotel-management.git
+cd hotel-management
+npm install
+```
+
+### 2.Backend Setup (ASP.NET Core)
+
+Navigate to the backend directory:
+
+```bash
+cd backend
+```
+
+Restore the .NET packages:
+
+```bash
+dotnet restore
+```
+
+Configure your database connection by updating appsettings.json:
+
+```bash
+{
+  "ConnectionStrings": {
+    "DefaultConnection": "Server=localhost;Database=HotelManagementDB;Uid=your_username;Pwd=your_password;"
+  },
+  "JwtSettings": {
+    "SecretKey": "your-secret-key-here",
+    "Issuer": "HotelManagement",
+    "Audience": "HotelManagement",
+    "ExpiryMinutes": 60
+  }
+}
+```
+
+Run database migrations:
+
+```bash
+dotnet ef database update
+```
+
+If migrations don't exist, create them:
+
+```bash
+dotnet ef migrations add InitialCreate
+dotnet ef database update
+```
+
+Start the ASP.NET Core development server:
+
+```bash
+dotnet run
+```
+
+### 3. Frontend Setup (ReactJS)
+
+Open a new terminal and navigate to the frontend directory:
+
+```bash
+cd frontend
+```
+
+Install the dependencies:
+
+```bash
+npm install
+# or
+yarn install
+```
+
+Configure your environment variables by creating a .env file:
+
+```bash
+REACT_APP_API_BASE_URL=https://localhost:5001/api
+REACT_APP_APP_NAME=Hotel Management System
+```
+
+Start the React development server:
+
+```bash
+npm start
+# or
+yarn start
+```
+
+### 4. Database Setup
+
+Create the MySQL database:
+
+```bash
+CREATE DATABASE HotelManagementDB;
+```
+
+The Entity Framework migrations will handle the table creation automatically
+when you run dotnet ef database update.
+
+The development server will start at `http://localhost:3000`.
+
+## Deployment
+
+To deploy this project, you can use Vercel. You can link your GitHub repository
+to Vercel and deploy the project with a single click.
+
+## Project Structure
+
+```bash
+hotel-management/
+├── backend/                       # ASP.NET Core backend
+│   ├── Controllers/
+│   ├── Models/
+│   ├── Services/
+│   ├── Data/
+│   └── appsettings.json
+├── frontend/                      # React frontend
+│   ├── src/
+│   │   ├── components/
+│   │   ├── pages/
+│   │   ├── services/
+│   │   └── utils/
+│   ├── public/
+│   └── package.json
+└── README.md
+```
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for
+details.
+
+## Conclusion
+
+This hotel management system demonstrates a modern full-stack application built
+with ReactJS and ASP.NET Core. The system provides comprehensive hotel
+management capabilities with a user-friendly interface and robust backend
+architecture. By combining the power of React's dynamic UI with ASP.NET Core's
+reliable backend services, this project offers an efficient solution for hotel
+operations and guest management.

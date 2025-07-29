@@ -1,0 +1,222 @@
+---
+  title: Spotify Clone
+  summary: A full-stack Spotify Clone built with ReactJS and Django.
+  image: /images/projects/spotify-clone.jpg
+  images: ['/images/projects/spotify-clone-1.png', '/images/projects/spotify-clone-2.png', '/images/projects/spotify-clone-3.png', '/images/projects/spotify-clone-4.png']
+  author: 'Gia Cuong'
+  publishedAt: '2025-02-26'
+---
+
+# Spotify Clone
+
+A full-stack Spotify Clone built with ReactJS and Django.
+
+A music streaming platform that allows users to stream music, create
+personalized playlists, and manage their music library with a focus on seamless
+audio playback and a user-friendly interface.
+
+## Features
+
+- **Audio Playback**: Stream songs with play, pause, skip, and volume control
+  functionalities.
+- **Personalized Playlists**: Create, edit, and delete custom playlists to
+  organize favorite tracks.
+- **User Interface**: Responsive design for intuitive navigation and music
+  discovery.
+- **User Authentication**: Allow users to sign up and log in (by Google).
+- **Realtime Chat**: Chat functionality using socket.
+- **Song, User, Statistic Management**: Create, Update, Delete, Read songs,
+  users, and statistics.
+
+## Technologies
+
+- **Frontend**: ReactJS, Tailwind CSS, Ant Design
+- **Backend**: Django
+- **Database**: MongoDB
+
+## Prerequisites
+
+Before you begin, ensure you have the following installed on your machine:
+
+- **Node.js** (version 16 or higher)
+- **npm** or **yarn**
+- **Python** (version 3.8 or higher)
+- **pip** (Python package installer)
+- **MongoDB** (running locally or MongoDB Atlas account)
+
+## Getting Started
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/lgc1210/clone-spotify.git
+cd clone-spotify
+```
+
+### 2. Backend Setup (Django)
+
+Navigate to the backend directory and set up the Django server:
+
+```bash
+cd server  # or backend directory
+```
+
+Create a virtual environment:
+
+```bash
+python -m venv venv
+# On Windows
+venv\Scripts\activate
+# On macOS/Linux
+source venv/bin/activate
+```
+
+Install Python dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+Configure your environment variables by creating a `.env` file:
+
+```bash
+# Create .env file with the following variables
+DEBUG=True
+SECRET_KEY=your-secret-key-here
+MONGODB_URI=mongodb://localhost:27017/spotify_clone
+# Add other necessary environment variables
+```
+
+Run database migrations:
+
+```bash
+python manage.py makemigrations
+python manage.py migrate
+```
+
+Create a superuser (optional):
+
+```bash
+python manage.py createsuperuser
+```
+
+Start the Django development server:
+
+```bash
+python manage.py runserver
+```
+
+The Django backend will start at `http://localhost:8000`.
+
+### 3. Frontend Setup (ReactJS)
+
+Open a new terminal and navigate to the frontend directory:
+
+```bash
+cd client  # or frontend directory
+```
+
+Install the dependencies:
+
+```bash
+npm install
+# or
+yarn install
+```
+
+Configure your environment variables by creating a `.env` file:
+
+```bash
+# Create .env file with the following variables
+VITE_API_BASE_URL=http://localhost:8000/api
+VITE_SOCKET_URL=http://localhost:8000
+# Add other necessary environment variables
+```
+
+Start the development server:
+
+```bash
+npm run dev
+# or
+yarn dev
+```
+
+The React development server will start at `http://localhost:5173`.
+
+### 4. Database Setup
+
+Make sure MongoDB is running on your system:
+
+```bash
+# If using local MongoDB
+mongod
+# Or ensure your MongoDB Atlas connection string is properly configured
+```
+
+### 5. Socket Configuration (Optional)
+
+If you're using WebSocket for real-time chat functionality, ensure your Django
+backend is configured with Django Channels and Redis (if needed):
+
+```bash
+pip install channels redis
+```
+
+## Project Structure
+
+```
+clone-spotify/
+├── client/                 # React frontend
+│   ├── src/
+│   ├── public/
+│   └── package.json
+├── server/                 # Django backend
+│   ├── manage.py
+│   ├── requirements.txt
+│   └── spotify_clone/
+└── README.md
+```
+
+## API Endpoints
+
+The Django backend provides RESTful API endpoints at
+`http://localhost:8000/api/` for:
+
+- User authentication (`/auth/`)
+- Songs management (`/songs/`)
+- Playlists management (`/playlists/`)
+- User management (`/users/`)
+- Statistics (`/stats/`)
+
+## Troubleshooting
+
+### Common Issues
+
+1. **CORS Issues**: Ensure Django CORS headers are properly configured
+2. **Database Connection**: Verify MongoDB is running and connection string is
+   correct
+3. **Port Conflicts**: Make sure ports 3000, 5173, and 8000 are available
+4. **Environment Variables**: Double-check all required environment variables
+   are set
+
+### Environment Variables Checklist
+
+**Backend (.env)**:
+
+- `DEBUG`
+- `SECRET_KEY`
+- `MONGODB_URI`
+- `ALLOWED_HOSTS`
+
+**Frontend (.env)**:
+
+- `VITE_API_BASE_URL`
+- `VITE_SOCKET_URL`
+
+## Conclusion
+
+This Spotify clone demonstrates a full-stack application built with ReactJS and
+Django. By integrating the Django REST API with React, you can create a seamless
+music streaming experience with user authentication, playlist management, and
+real-time chat functionality. The project showcases modern web development
+practices with a responsive UI and efficient backend architecture.
