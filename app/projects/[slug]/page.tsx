@@ -26,7 +26,8 @@ export default async function Project({
   }
 
   const { metadata, content } = project
-  const { title, image, images = [], author, publishedAt } = metadata
+  const { title, image, author, publishedAt } = metadata
+  const images = (metadata as any).images ?? []
 
   return (
     <section className='pb-24 pt-32'>
